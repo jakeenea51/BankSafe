@@ -1,3 +1,3 @@
-public class CheckingAccount.java{
+public class CheckingAccount{
     
 }
