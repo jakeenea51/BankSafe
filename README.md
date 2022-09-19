@@ -1,4 +1,4 @@
-*This repository is only for the development of the banking application! No sample code should be put into this repository.*
+*Only put sample code under the Sample Code folder. All work done on the banking application is to be done in the Banking Application folder only.*
 
 ## Accessing the code
 These steps only need to be done once:
