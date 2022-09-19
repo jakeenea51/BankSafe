@@ -1,5 +1,9 @@
+*This repository is only for the development of the banking application! No sample code should be put into this repository.*
+
+## Accessing the code
 To open this code in the VS code web editor, simply press the period key (.) on this page. 
 
-To sync with the current state of the repository, click the refresh button on the bottom of the page to "Push and Pull" all changes.
+## Making changes
+To enter the changes you have made, go to "Source Control", on the left hand side, and click the check icon to "Commit and Push".
 
-When you want changes to be made, go to "Source Control" and click the check icon to "Commit and Push".
+Make sure to put a comment when committing a change to describe what changes were made.
