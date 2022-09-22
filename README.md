@@ -1,4 +1,4 @@
-*Do not put Sample Code into this repository! Run any Sample Code via Eclipse.*
+*Do not put sample code into this repository! Run all sample code via Eclipse.*
 
 ## Accessing the code
 These steps only need to be done once:
