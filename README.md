@@ -1,4 +1,4 @@
-*Only put sample code under the Sample Code folder. All work done on the banking application is to be done in the Banking Application folder only.*
+*Do not put Sample Code into this repository! Run any Sample Code via Eclipse.*
 
 ## Accessing the code
 These steps only need to be done once:
