@@ -8,14 +8,14 @@ public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
     }
 
     //with info
-    public Savings_F2022_BankSafe(String fName, String lName, String accountNum){
+    public Savings_F2022_BankSafe(String fName, String lName, double accountNum){
         setFName(fName);
         setLName(lName);
         setAccountNum(accountNum);
     }
 
     //with info and initial deposit
-    public Savings_F2022_BankSafe(String fName, String lName, String accountNum, double balance){
+    public Savings_F2022_BankSafe(String fName, String lName, double accountNum, double balance){
         setFName(fName);
         setLName(lName);
         setAccountNum(accountNum);

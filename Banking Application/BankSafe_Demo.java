@@ -6,75 +6,24 @@ public class BankSafe_Demo {
         
         
         //test accounts
-        Checking_F2022_BankSafe johnSmithChecking = new Checking_F2022_BankSafe("John", "Smith", "111111111", 5000);
-        Savings_F2022_BankSafe johnSmithSavings = new Savings_F2022_BankSafe("John", "Smith", "222222222", 10000); 
-        Checking_F2022_BankSafe sarahLeeChecking = new Checking_F2022_BankSafe("Sarah", "Lee", "333333333", 2000);
-        Savings_F2022_BankSafe sarahLeeSavings = new Savings_F2022_BankSafe("Sarah", "Lee", "444444444", 6500);
-
+        ArrayList<Account_F2022_BankSafe> accounts = new ArrayList<Account_F2022_BankSafe>();
+        accounts.add(new Checking_F2022_BankSafe("John", "Smith", 111111111, 5000));
+        accounts.add(new Savings_F2022_BankSafe("John", "Smith", 222222222, 10000)); 
+        accounts.add(new Checking_F2022_BankSafe("Sarah", "Lee", 333333333, 2000));
+        accounts.add(new Savings_F2022_BankSafe("Sarah", "Lee", 444444444, 6500));
 
         System.out.println("Please make a selection from the following \n 1 - Log into Account \n 2 - Create Account \n 3 - Quit");
         int userInput = input.nextInt();
         
         if (userInput == 1){
             System.out.println("Input the account number: ");
-            int accountInput = input.nextInt();
-            System.out.println("Welcome what would you like to do?");
-            System.out.println("1 - View your balance");
-            System.out.println("2 - Deposit funds");
-            System.out.println("3 - Withdraw funds");
-            System.out.println("4 - Transfer funds from account");
-            System.out.println("5 - Freeze account changes");
-        int userInput2 = input.nextInt();
-
-            if (userInput2 == 1){
-                Double balance= 0.0;
-                System.out.println("Your balance is : "+ balance);
-
-            }
-            else if (userInput2 == 2){
-                     Double balance= 0.0;
-            System.out.println("How much would you like to deposit?");
-                    Double DepositA = input.nextDouble();
-                                System.out.println("Your new balance is :"+ (balance +DepositA));
-
-            }
-            else if (userInput2 == 3){
-                   Double balance= 0.0;
-            System.out.println("How much would you like to withdraw?");
-                    Double WithdrawA = input.nextDouble();
-                                System.out.println("Your new balance is :"+ (balance - WithdrawA));
-            }
-            else if (userInput2 == 4){
-                Double balance= 0.0;
-
-                System.out.println("Insert Routing number of recieving account");
-                int receivingAcc = input.nextInt();
-                
-                double TransferA = input.nextDouble();
-                if(TransferA> balance){
-                    System.out.println("Invaild transaction (Transfer amount exceeds balance");
+            double accountNumInput = input.nextDouble();
+            for (Account_F2022_BankSafe a : accounts){
+                if (accountNumInput == a.getAccountNum()){
+                    returningUserMenu(a);
                 }
-                else{
-                double Foreignaccount = 0;
-                double Newforeignaccount = Foreignaccount + TransferA;
-
-                System.out.println("Transfer complete.");
-                System.out.println("Your new balance is :"+ (balance - TransferA));
             }
-        }
-            else if (userInput2 == 5){
-            System.out.println("Account Frozen");
 
-            }
-            /*
-            System.out.println("Select integer for given account action:");
-            System.out.println("1. View routing number.");
-            System.out.println("2. View account balance.");
-            System.out.println("3. Withdraw from account");
-            System.out.println("4. Deposit into account");
-            System.out.println("5. Transfer funds from account");
-            System.out.println("6. Freeze account changes");
-            */
         }
         else if (userInput == 2){
             System.out.println("Type 1 to create a checking account or 2 to create a savings account");
@@ -82,12 +31,11 @@ public class BankSafe_Demo {
             if (userInput == 1){                                                //For checking account creation
                 System.out.println("Enter your name first name");
                 String fName = input.next();
-            
                 System.out.println("Enter your name last name");
                 String lName = input.next();
 
-            double Accountnum=Math.floor(Math.random() * 999999999)+100000000;  //Makes and displays random 9 digit Account and Routing number 
-            System.out.println("Your Account number is: "+ Accountnum);
+                double Accountnum=Math.floor(Math.random() * 999999999)+100000000;  //Makes and displays random 9 digit Account and Routing number 
+                System.out.println("Your Account number is: "+ Accountnum);
 
             double Routingnum=Math.floor(Math.random() * 999999999)+100000000;
             System.out.println("Your Routing number is: "+ Routingnum);
@@ -123,15 +71,83 @@ public class BankSafe_Demo {
             System.out.println("Invalid option. Please try again.");
         }
 
-        
-        // Savings_F2022_BankSafe account1 = new Savings_F2022_BankSafe("Jake", "Enea", "000001", 3000);
-        // account1.deposit(200.00);
-
-        // System.out.println("Account Number: " + account1.getAccountNum());
-        // System.out.println("This account belongs to " + account1.getFName() + " " + account1.getLName());
-        // System.out.println("Account balance: " + account1.getBalance());
-
+        input.close();
     }
+
+
+    //method to display returning user menu
+    private static void returningUserMenu(Account_F2022_BankSafe userAccount){
+
+        System.out.println("\nWelcome, " + userAccount.getFName() + " " + userAccount.getLName() + ", what would you like to do?");
+        Scanner input = new Scanner(System.in);
+        int userInput = 0;
+        while (userInput != 6){
+            System.out.println("\n1 - View your balance");
+            System.out.println("2 - Deposit funds");
+            System.out.println("3 - Withdraw funds");
+            System.out.println("4 - Transfer funds from account");
+            System.out.println("5 - Freeze/unfreeze account changes");
+            System.out.println("6 - Exit account menu");
+            userInput = input.nextInt();
+
+            if (userInput == 1){
+                System.out.println("\nYour balance is : "+ userAccount.getBalance());
+            }
+
+            else if (userInput == 2){
+                System.out.println("\nYour current balance is : "+ userAccount.getBalance());
+                System.out.println("How much would you like to deposit?");
+                userAccount.deposit(input.nextDouble());
+                System.out.println("Your new balance is : " + userAccount.getBalance());
+            }
+
+            else if (userInput == 3){
+                System.out.println("\nYour current balance is : "+ userAccount.getBalance());
+                System.out.println("How much would you like to withdraw?");
+                userAccount.withdraw(input.nextDouble());
+                System.out.println("Your new balance is : "+ userAccount.getBalance());
+            }
+
+            else if (userInput == 4){
+                Double balance= 0.0;
+                System.out.println("\nInsert Routing number of recieving account");
+                int receivingAcc = input.nextInt();
+                double TransferA = input.nextDouble();
+                if(TransferA> balance){
+                    System.out.println("\nInvaild transaction (Transfer amount exceeds balance");
+                }
+                else{
+                    double Foreignaccount = 0;
+                    double Newforeignaccount = Foreignaccount + TransferA;
+
+                    System.out.println("\nTransfer complete.");
+                    System.out.println("Your new balance is :"+ (balance - TransferA));
+                }
+
+            }
+            else if (userInput == 5){
+                if (!userAccount.isFrozen()){
+                    userAccount.setFrozen(true);
+                    System.out.println("\nAccount has been frozen.");
+                }
+                else{
+                    userAccount.setFrozen(false);
+                    System.out.println("\nAccount has been unfrozen.");
+                }
+            }
+
+            else if (userInput == 6){
+                System.out.println("\nThanks for stopping by, " + userAccount.getFName() + " " + userAccount.getLName() + ", have a great day!");
+                return;
+            }
+            else {
+                System.out.println("Invalid option. Please select an option from the list.");
+            }
+        }
+
+        input.close();
+    }
+
 }
 
 
