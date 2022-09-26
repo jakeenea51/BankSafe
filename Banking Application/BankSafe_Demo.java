@@ -1,4 +1,4 @@
-public class TestBankSafe {
+public class BankSafe_Demo {
     public static void main(String[] args) {
 
         Savings_F2022_BankSafe account1 = new Savings_F2022_BankSafe("Jake", "Enea", "000001", 3000);
