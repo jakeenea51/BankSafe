@@ -15,11 +15,11 @@ public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
     }
 
     //with info and initial deposit
-    public Savings_F2022_BankSafe(String fName, String lName, String accountNum, double amount){
+    public Savings_F2022_BankSafe(String fName, String lName, String accountNum, double balance){
         setFName(fName);
         setLName(lName);
         setAccountNum(accountNum);
-        deposit(amount);
+        deposit(balance);
     }
 
     
@@ -27,5 +27,6 @@ public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
     public void interestPayment(){
         this.balance += (interestRate * this.balance);
     }
+
 
 }
