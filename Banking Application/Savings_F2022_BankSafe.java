@@ -25,7 +25,7 @@ public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
     
     //method for interest payments
     public void interestPayment(){
-        this.amount += (interestRate * this.amount);
+        this.balance += (interestRate * this.balance);
     }
 
 }

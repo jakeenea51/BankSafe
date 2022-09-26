@@ -14,11 +14,11 @@ public class Checking_F2022_BankSafe extends Account_F2022_BankSafe{
     }
 
     //with info and initial deposit
-    public Checking_F2022_BankSafe(String fName, String lName, String accountNum, double amount){
+    public Checking_F2022_BankSafe(String fName, String lName, String accountNum, double balance){
         setFName(fName);
         setLName(lName);
         setAccountNum(accountNum);
-        deposit(amount);
+        deposit(balance);
     }
 
 }

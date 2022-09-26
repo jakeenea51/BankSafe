@@ -1,7 +1,7 @@
 public abstract class Account_F2022_BankSafe{
 
     public String fName, lName, accountNum;
-    public double amount = 0;
+    public double balance = 0;
 
 
     //constructors
@@ -42,18 +42,18 @@ public abstract class Account_F2022_BankSafe{
         this.accountNum = accountNum;
     }
 
-    public double getAmount(){
-        return amount;
+    public double getBalance(){
+        return balance;
     }
 
 
     //deposit and withdraw methods
     public void deposit(double deposit){
-        this.amount += deposit;
+        this.balance += deposit;
     }
 
     public void withdraw(double withdraw){
-        this.amount -= withdraw;
+        this.balance -= withdraw;
     }
 
 }
