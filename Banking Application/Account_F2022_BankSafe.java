@@ -3,7 +3,7 @@ import java.util.*;
 public abstract class Account_F2022_BankSafe{
 
     public String fName, lName;
-    public double accountNum, routingNum;
+    public int accountNum, routingNum;
     public double balance = 0;
     public boolean frozen = false;
 
@@ -13,16 +13,14 @@ public abstract class Account_F2022_BankSafe{
     //constructors
     //default
     public Account_F2022_BankSafe(){
-        this.accountNum = Math.floor(Math.random() * 999999999)+100000000;
-        this.routingNum = Math.floor(Math.random() * 999999999)+100000000;
     }
 
     //with name
     public Account_F2022_BankSafe(String fName, String lName, double accountNum, double routingNum){
         this.fName = fName;
         this.lName = lName;
-        this.accountNum = accountNum;
-        this.routingNum = routingNum;
+        this.accountNum = generateAccountNum();
+        this.routingNum = generateRoutingNum();
     }
 
 
@@ -43,21 +41,21 @@ public abstract class Account_F2022_BankSafe{
         this.lName = lName;
     }
 
-    public double getAccountNum(){
+    public int getAccountNum(){
         return accountNum;
     }
 
-    public void setAccountNum(double accountNum){
-        this.accountNum = accountNum;
-    }
+    // public void setAccountNum(double accountNum){
+    //     this.accountNum = accountNum;
+    // }
     
-    public double getRoutingNum(double routingNum){
+    public int getRoutingNum(){
         return routingNum;
     }
 
-    public void setRoutingNum(double routingNum){
-        this.routingNum = routingNum;
-    }
+    // public void setRoutingNum(double routingNum){
+    //     this.routingNum = routingNum;
+    // }
 
     public double getBalance(){
         return balance;
@@ -70,6 +68,20 @@ public abstract class Account_F2022_BankSafe{
     public void setFrozen(boolean frozen){
         this.frozen = frozen;
     }
+
+
+    //method to generate an account number
+    public static int generateAccountNum(){
+        Random random = new Random();
+        return 100000000 + random.nextInt(900000000);
+        //return Math.floor(Math.random() * 999999999)+100000000;
+    }
+
+    public static int generateRoutingNum(){
+        Random random = new Random();
+        return 100000000 + random.nextInt(900000000);
+    }
+
 
 
     //deposit method
