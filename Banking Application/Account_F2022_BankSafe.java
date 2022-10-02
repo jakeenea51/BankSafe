@@ -86,20 +86,25 @@ public abstract class Account_F2022_BankSafe{
 
     //deposit method
     public void deposit(double deposit){
-        if (deposit > 20000){
-            System.out.println("Deposits over $20,000 are charged a 1% fee. Do you wish to continue? \nPress 1 if you wish to continue.");
-            int userInput = input.nextInt();
-            if (userInput == 1){
-                double fee = deposit * .01;
-                this.balance += deposit - fee;
+        if (deposit > 0){
+            if (deposit > 20000){
+                System.out.println("Deposits over $20,000 are charged a 1% fee. Do you wish to continue? \nPress 1 if you wish to continue.");
+                int userInput = input.nextInt();
+                if (userInput == 1){
+                    double fee = deposit * .01;
+                    this.balance += deposit - fee;
+                }
+                else {
+                    System.out.println("Deposit cancelled.");
+                }
             }
-            else {
-                System.out.println("Deposit cancelled.");
+            else{
+                this.balance += deposit;
+                System.out.println("Deposit successful.");
             }
         }
         else{
-            this.balance += deposit;
-            System.out.println("Deposit successful.");
+            System.out.println("Deposit cancelled. Cannot deposit a negative amount.");
         }
     }
 
@@ -125,7 +130,7 @@ public abstract class Account_F2022_BankSafe{
 
     // Overdraft methods
     public void overdraft() {
-        if(balance < 0){
+        if(this.balance < 0){
             this.balance -= 25;
         }
     }

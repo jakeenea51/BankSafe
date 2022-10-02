@@ -1,6 +1,6 @@
 public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
     
-    public double interestRate;
+    public double interestRate = 0;
 
     //constructors
     //default
@@ -22,6 +22,12 @@ public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
         this.accountNum = generateAccountNum();
         this.routingNum = generateRoutingNum();
         deposit(balance);
+    }
+
+
+    //set interest rate
+    public void setInterestRate(double interestRate){
+        this.interestRate = interestRate;
     }
 
     
