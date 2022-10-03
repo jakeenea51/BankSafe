@@ -7,7 +7,11 @@ public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
     public Savings_F2022_BankSafe(){
     }
 
-    //with info
+    /**
+     * Construtor method with name
+     * @param fName The first name of the owner
+     * @param lName The last name of the owner
+     */
     public Savings_F2022_BankSafe(String fName, String lName){
         setFName(fName);
         setLName(lName);
@@ -16,6 +20,11 @@ public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
     }
 
     //with info and initial deposit
+    /**
+     * @param fName The first name of the owner
+     * @param lName The last name of the owner
+     * @param balance Balance in the account
+     */
     public Savings_F2022_BankSafe(String fName, String lName, double balance){
         setFName(fName);
         setLName(lName);

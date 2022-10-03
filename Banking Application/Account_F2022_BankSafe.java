@@ -16,6 +16,12 @@ public abstract class Account_F2022_BankSafe{
     }
 
     //with name
+    /**
+     * @param fName The first name of the owner
+     * @param lName The last name of the owner
+     * @param accountNum This is the account's identification number
+     * @param routingNum This is the account's routing number
+     */
     public Account_F2022_BankSafe(String fName, String lName, double accountNum, double routingNum){
         this.fName = fName;
         this.lName = lName;
@@ -85,6 +91,10 @@ public abstract class Account_F2022_BankSafe{
 
 
     //deposit method
+    /**
+     * @param deposit The amount the user would like to deposit
+     * @return Nothing
+     */
     public void deposit(double deposit){
         if (deposit > 0){
             if (deposit > 20000){
@@ -110,6 +120,10 @@ public abstract class Account_F2022_BankSafe{
 
 
     //withdraw method
+    /**
+     * @param withdrawal
+     * @return Nothing
+     */
     public void withdraw(double withdrawal){
         if (withdrawal > 20000){
             System.out.println("Withdrawals over $20,000 are charged a 1% fee. Do you wish to continue? \nPress 1 if you wish to continue.");
