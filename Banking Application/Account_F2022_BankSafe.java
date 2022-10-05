@@ -51,20 +51,24 @@ public abstract class Account_F2022_BankSafe{
         return accountNum;
     }
 
-    // public void setAccountNum(double accountNum){
-    //     this.accountNum = accountNum;
-    // }
+    public void setAccountNum(int accountNum){
+        this.accountNum = accountNum;
+    }
     
     public int getRoutingNum(){
         return routingNum;
     }
 
-    // public void setRoutingNum(double routingNum){
-    //     this.routingNum = routingNum;
-    // }
+    public void setRoutingNum(int routingNum){
+        this.routingNum = routingNum;
+    }
 
     public double getBalance(){
         return balance;
+    }
+
+    public void setBalance(double balance){
+        this.balance = balance;
     }
 
     public boolean isFrozen(){

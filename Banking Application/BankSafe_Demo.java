@@ -1,16 +1,36 @@
 import java.util.*;
+import java.io.*;
 public class BankSafe_Demo {
 
     static Scanner input = new Scanner(System.in);
+    static File file = new File("CSS1035-Code/Banking Application/accounts.txt");
 
-    public static void main(String[] args) {        
+    public static void main(String[] args) throws Exception{        
 
-        //test accounts
+        //import accounts from csv
+        Scanner fileIn = new Scanner(file);
+        
         ArrayList<Account_F2022_BankSafe> accounts = new ArrayList<Account_F2022_BankSafe>();
-        accounts.add(new Checking_F2022_BankSafe("John", "Smith", 5000));
-        accounts.add(new Savings_F2022_BankSafe("John", "Smith", 10000)); 
-        accounts.add(new Checking_F2022_BankSafe("Sarah", "Lee", 2000));
-        accounts.add(new Savings_F2022_BankSafe("Sarah", "Lee", 6500));
+
+        while (fileIn.hasNext()){
+            String accountType = fileIn.next();
+            String fName = fileIn.next();
+            String lName = fileIn.next();
+            double balance = fileIn.nextDouble();
+            int accountNum = fileIn.nextInt();
+            int routingNum = fileIn.nextInt();
+            boolean frozen = fileIn.nextBoolean();
+            if (accountType.equals("checking")){
+                accounts.add(new Checking_F2022_BankSafe(fName, lName, balance, accountNum, routingNum, frozen));
+            }
+            else if (accountType.equals("savings")){
+                accounts.add(new Savings_F2022_BankSafe(fName, lName, balance, accountNum, routingNum, frozen));
+            }
+            fileIn.nextLine();
+        }
+
+        fileIn.close();
+
 
         System.out.println("Welcome to the BankSafe ATM!");
 
@@ -25,7 +45,7 @@ public class BankSafe_Demo {
             
             if (userInput == 1){
                 System.out.println("Input the account number: ");
-                double accountNumInput = input.nextDouble();
+                int accountNumInput = input.nextInt();
                 for (Account_F2022_BankSafe a : accounts){
                     if (accountNumInput == a.getAccountNum()){
                         returningUserMenu(a);
@@ -43,6 +63,7 @@ public class BankSafe_Demo {
             else if (userInput == 3){
                 System.out.println("\nThank you, have a nice day.");
                 input.close();
+                save(accounts);
             }
 
             else {
@@ -171,6 +192,27 @@ public class BankSafe_Demo {
         }
         return null;
     }
+
+    private static void save(ArrayList<Account_F2022_BankSafe> accounts) throws Exception{
+        PrintWriter fileOut = new PrintWriter(file);
+        for (Account_F2022_BankSafe a : accounts) {
+			if (a instanceof Checking_F2022_BankSafe) {
+				fileOut.println("checking");
+			}
+			else if (a instanceof Savings_F2022_BankSafe) {
+				fileOut.println("savings");
+			}
+            fileOut.println(a.getFName());
+            fileOut.println(a.getLName());
+            fileOut.println(a.getBalance());
+            fileOut.println(a.getAccountNum());
+            fileOut.println(a.getRoutingNum());
+            fileOut.println(a.isFrozen());
+            fileOut.println();
+		}
+        fileOut.close();
+    }
+
 }
 
 
