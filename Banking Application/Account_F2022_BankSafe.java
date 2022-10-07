@@ -1,8 +1,7 @@
 import java.util.*;
 
-public abstract class Account_F2022_BankSafe{
+public abstract class Account_F2022_BankSafe extends User_F2022_BankSafe{
 
-    public String fName, lName;
     public int accountNum, routingNum;
     public double balance = 0;
     public boolean frozen = false;
@@ -17,36 +16,16 @@ public abstract class Account_F2022_BankSafe{
 
     //with name
     /**
-     * @param fName The first name of the owner
-     * @param lName The last name of the owner
      * @param accountNum This is the account's identification number
      * @param routingNum This is the account's routing number
      */
-    public Account_F2022_BankSafe(String fName, String lName, double accountNum, double routingNum){
-        this.fName = fName;
-        this.lName = lName;
+    public Account_F2022_BankSafe(double accountNum, double routingNum){
         this.accountNum = generateAccountNum();
         this.routingNum = generateRoutingNum();
     }
 
 
     //get and set methods
-    public String getFName(){
-        return fName;
-    }
-
-    public void setFName(String fName){
-        this.fName = fName;
-    }
-
-    public String getLName(){
-        return lName;
-    }
-
-    public void setLName(String lName){
-        this.lName = lName;
-    }
-
     public int getAccountNum(){
         return accountNum;
     }

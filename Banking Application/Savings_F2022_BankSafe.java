@@ -3,31 +3,17 @@ public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
     public double interestRate = 0;
 
     //constructors
-    //default
+    //default constructor
     public Savings_F2022_BankSafe(){
-    }
-
-    /**
-     * Construtor method with name
-     * @param fName The first name of the owner
-     * @param lName The last name of the owner
-     */
-    public Savings_F2022_BankSafe(String fName, String lName){
-        setFName(fName);
-        setLName(lName);
         this.accountNum = generateAccountNum();
         this.routingNum = generateRoutingNum();
     }
 
-    //with info and initial deposit
+    //with initial deposit
     /**
-     * @param fName The first name of the owner
-     * @param lName The last name of the owner
      * @param balance Balance in the account
      */
-    public Savings_F2022_BankSafe(String fName, String lName, double balance){
-        setFName(fName);
-        setLName(lName);
+    public Savings_F2022_BankSafe(double balance){
         this.accountNum = generateAccountNum();
         this.routingNum = generateRoutingNum();
         deposit(balance);
@@ -41,9 +27,7 @@ public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
      * @param accountingNum The account's identification number
      * @param routingNum The account's routing number
      */
-    public Savings_F2022_BankSafe(String fName, String lName, double balance, int accountNum, int routingNum, boolean frozen){
-        setFName(fName);
-        setLName(lName);
+    public Savings_F2022_BankSafe(double balance, int accountNum, int routingNum, boolean frozen){
         setBalance(balance);
         setAccountNum(accountNum);
         setRoutingNum(routingNum);
