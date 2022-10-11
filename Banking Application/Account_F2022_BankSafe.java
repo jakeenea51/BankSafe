@@ -2,6 +2,7 @@ import java.util.*;
 
 public abstract class Account_F2022_BankSafe extends User_F2022_BankSafe{
 
+    public static Random random = new Random();
     public int accountNum, routingNum;
     public double balance = 0;
     public boolean frozen = false;
@@ -61,13 +62,10 @@ public abstract class Account_F2022_BankSafe extends User_F2022_BankSafe{
 
     //method to generate an account number
     public static int generateAccountNum(){
-        Random random = new Random();
         return 100000000 + random.nextInt(900000000);
-        //return Math.floor(Math.random() * 999999999)+100000000;
     }
 
     public static int generateRoutingNum(){
-        Random random = new Random();
         return 100000000 + random.nextInt(900000000);
     }
 
