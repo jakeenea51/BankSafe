@@ -1,31 +1,35 @@
 public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
     
+    /**
+     * Interest rate of the Savings account
+     */
     public double interestRate = 0;
 
     //constructors
-    //default constructor
+    /**
+     * This is the default constructor for creating a new Savings object. Account number and routing number will be automatically generated.
+     */
     public Savings_F2022_BankSafe(){
-        this.accountNum = generateAccountNum();
-        this.routingNum = generateRoutingNum();
+        setAccountNum(generateNum());
+        setRoutingNum(generateNum());
     }
 
-    //with initial deposit
     /**
-     * @param balance Balance in the account
+     * This constructor will create a new Savings object with an initial deposit. Account number and routing number will be automatically generated.
+     * @param balance The balance in the account
      */
     public Savings_F2022_BankSafe(double balance){
-        this.accountNum = generateAccountNum();
-        this.routingNum = generateRoutingNum();
+        setAccountNum(generateNum());
+        setRoutingNum(generateNum());
         deposit(balance);
     }
 
-    //for importing existing accounts from csv
     /**
-     * @param fName The first name of the owner
-     * @param lName The last name of the owner
+     * This constructor will create a new Savings object using information imported from the accounts.txt file.
      * @param balance The balance in the account
      * @param accountingNum The account's identification number
      * @param routingNum The account's routing number
+     * @param frozen Frozen status of the account
      */
     public Savings_F2022_BankSafe(double balance, int accountNum, int routingNum, boolean frozen){
         setBalance(balance);
@@ -35,13 +39,18 @@ public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
     }
 
 
-    //set interest rate
+    /**
+     * Method to set the account's interest rate.
+     * @param interestRate The interest rate for the account
+     */
     public void setInterestRate(double interestRate){
         this.interestRate = interestRate;
     }
 
     
-    //method for interest payments
+    /**
+     * Method to initiate an interest payment on the account. 
+     */
     public void interestPayment(){
         this.balance += (interestRate * this.balance);
     }
