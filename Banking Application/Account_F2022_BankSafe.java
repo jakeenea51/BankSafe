@@ -2,11 +2,31 @@ import java.util.*;
 
 public abstract class Account_F2022_BankSafe extends User_F2022_BankSafe{
 
+    //fields
+    /**
+     * Random object used for generating the account and routing numbers
+     */
     private static Random random = new Random();
-    private int accountNum, routingNum;
+    /**
+     * Account number of the account
+     */
+    private int accountNum;
+    /**
+     * Routing number of the account
+     */
+    private int routingNum;
+    /**
+     * Balance of the account
+     */
     public double balance = 0;
+    /**
+     * Frozen status of the account
+     */
     private boolean frozen = false;
 
+    /**
+     * ArrayList containing all account and routing numbers to ensure that each randomly generated account and routing number is unique
+     */
     private static ArrayList<Integer> nums = new ArrayList<Integer>();
 
     Scanner input = new Scanner(System.in);

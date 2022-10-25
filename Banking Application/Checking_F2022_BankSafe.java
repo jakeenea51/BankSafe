@@ -23,7 +23,7 @@ public class Checking_F2022_BankSafe extends Account_F2022_BankSafe{
     /**
      * This constructor will create a new Checking object using information imported from the accounts.txt file.
      * @param balance The balance in the account
-     * @param accountingNum The account's identification number
+     * @param accountNum The account's identification number
      * @param routingNum The account's routing number
      * @param frozen Frozen status of the account
      */
