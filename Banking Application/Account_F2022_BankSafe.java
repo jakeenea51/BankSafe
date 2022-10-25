@@ -29,6 +29,9 @@ public abstract class Account_F2022_BankSafe extends User_F2022_BankSafe{
      */
     private static ArrayList<Integer> nums = new ArrayList<Integer>();
 
+    /**
+     * Scanner object used for taking in user input
+     */
     Scanner input = new Scanner(System.in);
 
 
