@@ -1,6 +1,6 @@
 user
 johnsmith123
-bankaccount1
+d74a19b74a22cacca8fa4e6f7d4d0eacb65dda61f04625552928c066ccaaecfd
 John
 Smith
 
@@ -18,7 +18,7 @@ false
 
 user
 lee.sarah
-123password456
+389137315eeba714d066ddbdb64e0418d6f14ed2ce6639ded3773c29ba60161d
 Sarah
 Lee
 
@@ -36,7 +36,7 @@ false
 
 user
 jake.enea51
-banksafepass
+a599ad71330ab9c2646c5b1d95d814425ff7b2500f33b3150e58737142eda9e8
 Jake
 Enea
 
@@ -54,7 +54,7 @@ true
 
 user
 emlynn
-thisismypassword
+1da9133ab9dbd11d2937ec8d312e1e2569857059e73cc72df92e670928983ab5
 Emma
 Lynn
 
@@ -63,4 +63,10 @@ savings
 639858357
 953308786
 false
+
+user
+bobbyd
+4e0a4cbc78d256a777fa0c4797f278e23222df18b83f00320fb4dbf1af219bd6
+Bob
+Dylan
 

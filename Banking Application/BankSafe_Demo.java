@@ -66,7 +66,7 @@ public class BankSafe_Demo {
                     String password = input.next();
                     for (User_F2022_BankSafe u : users){
                         if (u.getUsername().equals(username)){
-                            if (u.getPassword().equals(password)){
+                            if (u.getPassword().equals(Hash.hashPassword(password))){
                                 found = true;
                                 userMenu(u);
                             }
@@ -345,7 +345,7 @@ public class BankSafe_Demo {
         }
         
         System.out.println("New account created.");
-        return new User_F2022_BankSafe(username, password, fName, lName);
+        return new User_F2022_BankSafe(username, Hash.hashPassword(password), fName, lName);
 
     }
 

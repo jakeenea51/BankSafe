@@ -1,5 +1,4 @@
 To do list:
-- implement password hashing
 - put frozen boolean into effect (so it actually freezes account)
 - build out transferring of funds
 - add settings to user menu
