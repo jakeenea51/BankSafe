@@ -13,7 +13,12 @@ public class BankSafe_Test {
     @Test
     public void depositTest(){
         Checking_F2022_BankSafe account1 = new Checking_F2022_BankSafe(2000);
-        account1.deposit(300);
+        try{
+            account1.deposit(300);
+        }
+        catch(InvalidAmountException ex){
+            System.out.println(ex);
+        }
         assertEquals(2300, account1.getBalance(), .01);
     }
 
@@ -21,7 +26,12 @@ public class BankSafe_Test {
     @Test
     public void withdrawTest(){
         Checking_F2022_BankSafe account1 = new Checking_F2022_BankSafe(2000);
-        account1.withdraw(500);
+        try{
+            account1.withdraw(500);
+        }
+        catch(InvalidAmountException ex){
+            System.out.println(ex);
+        }
         assertEquals(1500, account1.getBalance(), .01);
     }
 
@@ -38,7 +48,12 @@ public class BankSafe_Test {
     @Test
     public void overdraftTest(){
         Checking_F2022_BankSafe account1 = new Checking_F2022_BankSafe(2000);
-        account1.withdraw(2300);
+        try{
+            account1.withdraw(2300);
+        }
+        catch(InvalidAmountException ex){
+            System.out.println(ex);
+        }
         account1.overdraft();
         assertEquals(-325, account1.getBalance(), .01);
     }

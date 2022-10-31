@@ -15,7 +15,12 @@ public class Checking_F2022_BankSafe extends Account_F2022_BankSafe{
     public Checking_F2022_BankSafe(double balance){
         setAccountNum(generateNum());
         setRoutingNum(generateNum());
-        deposit(balance);
+        try{
+            deposit(balance);
+        }
+        catch(InvalidAmountException ex){
+            System.out.println(ex);
+        }
     }
 
     /**

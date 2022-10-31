@@ -92,5 +92,24 @@ public class User_F2022_BankSafe {
         userAccounts.add(account);
     }
 
+
+    public static User_F2022_BankSafe login(String username, String password) throws InvalidLoginException{
+        boolean found = false;
+            while (!found){
+                for (User_F2022_BankSafe u : BankSafe_Demo.users){
+                    if (u.getUsername().equals(username)){
+                        if (u.getPassword().equals(Hash.hashPassword(password))){
+                            found = true;
+                            return u;
+                        }
+                    }
+                }
+                if (!found){
+                    throw new InvalidLoginException();
+                }
+            }
+            return null;
+    }
+
 }
 
