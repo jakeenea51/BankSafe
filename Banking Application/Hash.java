@@ -38,7 +38,7 @@ public class Hash {
     public static String hashPassword(String password){
         try
         {
-            return(Hash.toHexString(Hash.getSHA(password)));
+            return(toHexString(getSHA(password)));
         }
         // For specifying wrong message digest algorithms
         catch (NoSuchAlgorithmException e) {
