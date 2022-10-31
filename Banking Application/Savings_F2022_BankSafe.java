@@ -1,14 +1,10 @@
 public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
     
-    /**
-     * Interest rate of the Savings account
-     */
+    /** Interest rate of the Savings account */
     public double interestRate = 0;
 
     //constructors
-    /**
-     * This is the default constructor for creating a new Savings object. Account number and routing number will be automatically generated.
-     */
+    /** This is the default constructor for creating a new Savings object. Account number and routing number will be automatically generated. */
     public Savings_F2022_BankSafe(){
         setAccountNum(generateNum());
         setRoutingNum(generateNum());
@@ -48,9 +44,7 @@ public class Savings_F2022_BankSafe extends Account_F2022_BankSafe{
     }
 
     
-    /**
-     * Method to initiate an interest payment on the account. 
-     */
+    /** Method to initiate an interest payment on the account. */
     public void interestPayment(){
         this.balance += (interestRate * this.balance);
     }

@@ -3,42 +3,26 @@ import java.util.*;
 public abstract class Account_F2022_BankSafe extends User_F2022_BankSafe{
 
     //fields
-    /**
-     * Random object used for generating the account and routing numbers
-     */
+    /** Random object used for generating the account and routing numbers */
     private static Random random = new Random();
-    /**
-     * Account number of the account
-     */
+    /** Account number of the account */
     private int accountNum;
-    /**
-     * Routing number of the account
-     */
+    /** Routing number of the account */
     private int routingNum;
-    /**
-     * Balance of the account
-     */
+    /** Balance of the account */
     public double balance = 0;
-    /**
-     * Frozen status of the account
-     */
+    /** Frozen status of the account */
     private boolean frozen = false;
 
-    /**
-     * ArrayList containing all account and routing numbers to ensure that each randomly generated account and routing number is unique
-     */
+    /** ArrayList containing all account and routing numbers to ensure that each randomly generated account and routing number is unique */
     private static ArrayList<Integer> nums = new ArrayList<Integer>();
 
-    /**
-     * Scanner object used for taking in user input
-     */
+    /** Scanner object used for taking in user input */
     Scanner input = new Scanner(System.in);
 
 
     //constructors
-    /**
-     * This is the default constructor for creating a new Account object.
-     */
+    /** This is the default constructor for creating a new Account object. */
     public Account_F2022_BankSafe(){
     }
 
@@ -180,9 +164,7 @@ public abstract class Account_F2022_BankSafe extends User_F2022_BankSafe{
         }
     }
 
-    /**
-     * Method to charge an overdraft fee if the balance in the account is below 0.
-     */
+    /** Method to charge an overdraft fee if the balance in the account is below 0. */
     public void overdraft() {
         if(this.balance < 0){
             this.balance -= 25;

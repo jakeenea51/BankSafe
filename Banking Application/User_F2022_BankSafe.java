@@ -3,30 +3,18 @@ import java.util.*;
 public class User_F2022_BankSafe {
     
     //fields
-    /**
-     * Username of the user profile
-     */
+    /** Username of the user profile */
     private String username;
-    /**
-     * Password for the user profile
-     */
+    /** Password for the user profile */
     private String password; 
-    /**
-     * First name of the owner of the user profile
-     */
+    /** First name of the owner of the user profile */
     private String fName;
-    /**
-     * Last name of the owner of the user profile
-     */
+    /** Last name of the owner of the user profile */
     private String lName;
-    /**
-     * ArrayList containing all the accounts associated with the user profile
-     */
+    /** ArrayList containing all the accounts associated with the user profile */
     public ArrayList<Account_F2022_BankSafe> userAccounts = new ArrayList<Account_F2022_BankSafe>();
 
-    /**
-     * This is the default constructor for creating a new User object. 
-     */
+    /** This is the default constructor for creating a new User object. */
     public User_F2022_BankSafe(){
     }
 

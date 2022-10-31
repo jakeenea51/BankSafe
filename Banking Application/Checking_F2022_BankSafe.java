@@ -2,9 +2,7 @@ public class Checking_F2022_BankSafe extends Account_F2022_BankSafe{
     
 
     //constructors
-    /**
-     * This is the default constructor for creating a new Checking object. Account number and routing number will be automatically generated.
-     */
+    /** This is the default constructor for creating a new Checking object. Account number and routing number will be automatically generated. */
     public Checking_F2022_BankSafe(){
         setAccountNum(generateNum());
         setRoutingNum(generateNum());
