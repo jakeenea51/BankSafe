@@ -9,7 +9,10 @@ public class BankSafe_Demo {
 
     public static void main(String[] args) throws Exception {
 
-        // import accounts from csv
+        // output encoded to UTF-8
+        System.setOut(new PrintStream(System.out, true, "UTF-8"));
+
+        // import accounts from txt file
         Scanner fileIn = new Scanner(file);
 
         User_F2022_BankSafe newUser = new User_F2022_BankSafe();
@@ -49,15 +52,26 @@ public class BankSafe_Demo {
 
         int userInput = 0;
         while (userInput != 3) {
-            System.out.println("");
-            System.out.println("Please make a selection from the following: ");
-            System.out.println(" 1 - Login to account");
-            System.out.println(" 2 - Create account");
-            System.out.println(" 3 - Quit");
-            userInput = input.nextInt();
+           //Do while loop is used to validate user input to ensure that input is an Integer rather than a string
+            do{
+                try{
+                    System.out.println("");
+                    System.out.println("Please make a selection from the following: ");
+                    System.out.println(" 1 - Login to account");
+                    System.out.println(" 2 - Create account");
+                    System.out.println(" 3 - Quit");
+                    userInput = input.nextInt();
+                }
+                // catches invalid option input
+                catch (InputMismatchException ex){
+                    System.out.println("\nInvalid option. Please select an option from the list.");
+                    userInput = 0;
+                }
+                input.nextLine();
+            } while (userInput == 0);
+            
 
             // login to user account
-
             if (userInput == 1){
                 boolean found = false;
                 while (!found){
@@ -69,6 +83,7 @@ public class BankSafe_Demo {
                     String password = input.next();
                     userMenu(User_F2022_BankSafe.login(username, password));
                     }
+                    // catches invalid login
                     catch(InvalidLoginException ex){
                         System.out.println(ex);
                         found = false;
@@ -87,7 +102,7 @@ public class BankSafe_Demo {
                 save(users);
             }
             else {
-                System.out.println("\nInvalid option.");
+                System.out.println("\nInvalid option. Please select an option from the list.");
             }
         }
     }
@@ -96,15 +111,24 @@ public class BankSafe_Demo {
     // method to display user account menu
     private static void userMenu(User_F2022_BankSafe user) {
 
-        System.out.println("\nWelcome, " + user.getFName() + " " + user.getLName() + ", what would you like to do?");
         int userInput = 0;
         while (userInput != 4) {
-            System.out.println("");
-            System.out.println(" 1 - Select account");
-            System.out.println(" 2 - Create new account");
-            System.out.println(" 3 - Change settings");
-            System.out.println(" 4 - Logout");
-            userInput = input.nextInt();
+            do{
+                try{
+                    System.out.println("\nWelcome, " + user.getFName() + " " + user.getLName() + ", what would you like to do?");
+                    System.out.println(" 1 - Select account");
+                    System.out.println(" 2 - Create new account");
+                    System.out.println(" 3 - Change settings");
+                    System.out.println(" 4 - Logout");
+                    userInput = input.nextInt();
+                }
+                // catches invalid option input
+                catch (InputMismatchException ex){
+                    System.out.println("\nInvalid option. Please select an option from the list.");
+                    userInput = 0;
+                }
+                input.nextLine();
+            } while (userInput == 0);
 
             // display accounts and prompt user for account number of account they would
             // like to select
@@ -123,10 +147,22 @@ public class BankSafe_Demo {
                         System.out.println("Balance: " + a.getBalance());
                     }
 
+                    int userNum = 0;
                     boolean found = false;
                     while (!found) {
-                        System.out.println("\nEnter the account number of the account you wish to select: ");
-                        int userNum = input.nextInt();
+                        do{
+                            try{
+                                System.out.println("\nEnter the account number of the account you wish to select: ");
+                                userNum = input.nextInt();
+                            }
+                            // catches invalid account number input
+                            catch (InputMismatchException ex){
+                                System.out.println("\nInvalid account number. Please select an account number from the list.");
+                                userNum = 0;
+                            }
+                            input.nextLine();
+                        } while (userNum == 0);
+
                         for (Account_F2022_BankSafe a : user.userAccounts) {
                             if (a.getAccountNum() == userNum) {
                                 found = true;
@@ -134,7 +170,7 @@ public class BankSafe_Demo {
                             }
                         }
                         if (!found) {
-                            System.out.println("\nInvalid account number.");
+                            System.out.println("\nInvalid account number. Please select an account number from the list.");
                         }
                     }
 
@@ -174,17 +210,26 @@ public class BankSafe_Demo {
             type = "Savings";
         }
 
-        System.out.println("\n" + type + " Account #" + userAccount.getAccountNum() + "\nWhat would you like to do?");
         int userInput = 0;
         while (userInput != 6) {
-            System.out.println("");
-            System.out.println(" 1 - View your balance");
-            System.out.println(" 2 - Deposit funds");
-            System.out.println(" 3 - Withdraw funds");
-            System.out.println(" 4 - Transfer funds from account");
-            System.out.println(" 5 - Freeze/unfreeze account changes");
-            System.out.println(" 6 - Exit account menu");
-            userInput = input.nextInt();
+            do{
+                try{
+                    System.out.println("\n" + type + " Account #" + userAccount.getAccountNum() + "\nWhat would you like to do?");
+                    System.out.println(" 1 - View your balance");
+                    System.out.println(" 2 - Deposit funds");
+                    System.out.println(" 3 - Withdraw funds");
+                    System.out.println(" 4 - Transfer funds from account");
+                    System.out.println(" 5 - Freeze/unfreeze account changes");
+                    System.out.println(" 6 - Exit account menu");
+                    userInput = input.nextInt();
+                }
+                // catches invalid option input
+                catch (InputMismatchException ex){
+                    System.out.println("\nInvalid option. Please select an option from the list.");
+                    userInput = 0;
+                }
+                input.nextLine();
+            } while (userInput == 0);
 
             if (userInput == 1) {
                 System.out.println("\nYour balance is : " + userAccount.getBalance());
@@ -197,6 +242,7 @@ public class BankSafe_Demo {
                 userAccount.deposit(input.nextDouble());
                 System.out.println("Your new balance is : " + userAccount.getBalance());
                 }
+                // catches invalid negative amount
                 catch(InvalidAmountException ex){
                     System.out.println(ex);
                 }
@@ -209,6 +255,7 @@ public class BankSafe_Demo {
                     userAccount.withdraw(input.nextDouble());
                     System.out.println("Your new balance is : " + userAccount.getBalance());
                 }
+                // catches invalid negative amount 
                 catch(InvalidAmountException ex){
                     System.out.println(ex);
                 }
@@ -251,10 +298,20 @@ public class BankSafe_Demo {
 
         int userInput = 0;
         while (userInput != 3) {
-            System.out.println("\n 1 - Create a checking account");
-            System.out.println(" 2 - Create a savings account");
-            System.out.println(" 3 - Back to main menu");
-            userInput = input.nextInt();
+            do{
+                try{
+                    System.out.println("\n 1 - Create a checking account");
+                    System.out.println(" 2 - Create a savings account");
+                    System.out.println(" 3 - Back to main menu");
+                    userInput = input.nextInt();
+                }
+                // catches invalid option input
+                catch (InputMismatchException ex){
+                    System.out.println("\nInvalid option. Please select an option from the list.");
+                    userInput = 0;
+                }
+                input.nextLine();
+            } while (userInput == 0);
 
             if (userInput == 1) { // For checking account creation
 
@@ -296,7 +353,7 @@ public class BankSafe_Demo {
             }
 
             else {
-                System.out.println("\nInvalid option.");
+                System.out.println("\nInvalid option. Please select an option from the list.");
             }
         }
         return null;
