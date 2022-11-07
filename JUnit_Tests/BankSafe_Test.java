@@ -58,4 +58,24 @@ public class BankSafe_Test {
         assertEquals(-325, account1.getBalance(), .01);
     }
 
+
+    @Test
+    public void validateNumTest(){
+        assertEquals(true, Account_F2022_BankSafe.validateNum(234567890));
+        assertEquals(false, Account_F2022_BankSafe.validateNum(1234567890));
+    }
+
+
+    @Test
+    public void invalidAmountExceptionTest(){
+        Checking_F2022_BankSafe account1 = new Checking_F2022_BankSafe(2000);
+        try{
+            account1.withdraw(-50);
+        }
+        catch(InvalidAmountException ex){
+            System.out.println(ex);
+        }
+        assertEquals(2000, account1.getBalance(), .01);
+    }
+
 }
