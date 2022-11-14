@@ -105,7 +105,8 @@ public abstract class Account_F2022_BankSafe extends User_F2022_BankSafe {
      * @return Random, unique, 9-digit number to be used for either the account number or the routing number
      */
     public static int generateNum() {
-        int num = 100000000 + random.nextInt(900000000);
+        // RISK MITIGATION - use exact method to prevent int overflow
+        int num = Math.addExact(100000000, random.nextInt(900000000));
         if (nums.contains(num))
             num = generateNum();
         else if (!validateNum(num))

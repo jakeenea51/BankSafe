@@ -5,6 +5,8 @@ public class BankSafe_Demo {
 
     static Scanner input = new Scanner(System.in);
     static File file = new File("CSS1035-Code/Banking Application/accounts.txt");
+
+    // EXAMPLE OF USING GENERICS - ArrayList only accepts objects of type User_F2022_BankSafe
     public static ArrayList<User_F2022_BankSafe> users = new ArrayList<User_F2022_BankSafe>();
 
     public static void main(String[] args) throws Exception {
