@@ -1,5 +1,7 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.io.*;
+import java.util.*;
 
 public class BankSafe_Test {
     
@@ -76,6 +78,30 @@ public class BankSafe_Test {
             System.out.println(ex);
         }
         assertEquals(2000, account1.getBalance(), .01);
+    }
+
+
+    @Test
+    public void DecryptFileTest() throws Exception{
+        File encryptedFile = new File("C:/Users/Jake/CSS1035 Code/CSS1035-Code/JUnit_Tests/encrypted.txt");
+        Encryption.decryptFile(encryptedFile);
+        File decryptedFile = new File("C:/Users/Jake/CSS1035 Code/CSS1035-Code/JUnit_Tests/plaintext.txt");
+        Scanner file1 = new Scanner(encryptedFile);
+        Scanner file2 = new Scanner(decryptedFile);
+        assertEquals(file1.next(), file2.next());
+        Encryption.encryptFile(encryptedFile);
+    }
+
+
+    @Test
+    public void EncryptFileTest() throws Exception{
+        File decryptedFile = new File("C:/Users/Jake/CSS1035 Code/CSS1035-Code/JUnit_Tests/encrypted.txt");
+        Encryption.encryptFile(decryptedFile);
+        File encryptedFile = new File("C:/Users/Jake/CSS1035 Code/CSS1035-Code/JUnit_Tests/plaintext.txt");
+        Scanner file1 = new Scanner(encryptedFile);
+        Scanner file2 = new Scanner(decryptedFile);
+        assertNotEquals(file1.hasNext(), file2.hasNext());
+        Encryption.decryptFile(decryptedFile);
     }
 
 }
