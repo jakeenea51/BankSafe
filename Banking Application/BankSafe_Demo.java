@@ -14,6 +14,9 @@ public class BankSafe_Demo {
         // output encoded to UTF-8
         System.setOut(new PrintStream(System.out, true, "UTF-8"));
 
+        // decrypt accounts file
+        Encryption.decryptFile(file);
+
         // import accounts from txt file
         Scanner fileIn = new Scanner(file);
 
@@ -49,6 +52,9 @@ public class BankSafe_Demo {
         }
 
         fileIn.close();
+
+        // encrypt accounts file
+        Encryption.encryptFile(file);
 
         System.out.println("Welcome to the BankSafe ATM!");
 
@@ -403,6 +409,10 @@ public class BankSafe_Demo {
     }
 
     private static void save(ArrayList<User_F2022_BankSafe> users) throws Exception {
+        
+        // decrypt accounts file
+        Encryption.decryptFile(file);
+
         PrintWriter fileOut = new PrintWriter(file);
         for (User_F2022_BankSafe u : users) {
             fileOut.println("user");
@@ -425,6 +435,9 @@ public class BankSafe_Demo {
             }
         }
         fileOut.close();
+
+        // encrypt accounts file
+        Encryption.encryptFile(file);
     }
 
 }
