@@ -219,16 +219,15 @@ public class BankSafe_Demo {
         }
 
         int userInput = 0;
-        while (userInput != 6) {
+        while (userInput != 5) {
             do{
                 try{
                     System.out.println("\n" + type + " Account #" + userAccount.getAccountNum() + "\nWhat would you like to do?");
                     System.out.println(" 1 - View your balance");
                     System.out.println(" 2 - Deposit funds");
                     System.out.println(" 3 - Withdraw funds");
-                    System.out.println(" 4 - Transfer funds from account");
-                    System.out.println(" 5 - Freeze/unfreeze account changes");
-                    System.out.println(" 6 - Exit account menu");
+                    System.out.println(" 4 - Freeze/unfreeze account changes");
+                    System.out.println(" 5 - Exit account menu");
                     userInput = input.nextInt();
                 }
                 // catches invalid option input
@@ -270,21 +269,6 @@ public class BankSafe_Demo {
             }
 
             else if (userInput == 4) {
-                Double balance = 0.0;
-                System.out.println("\nInsert Routing number of recieving account");
-                int receivingAcc = input.nextInt();
-                double TransferA = input.nextDouble();
-                if (TransferA > balance) {
-                    System.out.println("\nInvaild transaction (Transfer amount exceeds balance");
-                } else {
-                    double Foreignaccount = 0;
-                    double Newforeignaccount = Foreignaccount + TransferA;
-
-                    System.out.println("\nTransfer complete.");
-                    System.out.println("Your new balance is :" + (balance - TransferA));
-                }
-
-            } else if (userInput == 5) {
                 if (!userAccount.isFrozen()) {
                     userAccount.setFrozen(true);
                     System.out.println("\nAccount has been frozen.");
@@ -294,9 +278,11 @@ public class BankSafe_Demo {
                 }
             }
 
-            else if (userInput == 6) {
+            else if (userInput == 5) {
                 return;
-            } else {
+            } 
+            
+            else {
                 System.out.println("\nInvalid option. Please select an option from the list.");
             }
         }

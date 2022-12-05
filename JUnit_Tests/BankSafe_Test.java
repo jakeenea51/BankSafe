@@ -90,6 +90,8 @@ public class BankSafe_Test {
         Scanner file2 = new Scanner(decryptedFile);
         assertEquals(file1.next(), file2.next());
         Encryption.encryptFile(encryptedFile);
+        file1.close();
+        file2.close();
     }
 
 
@@ -102,6 +104,8 @@ public class BankSafe_Test {
         Scanner file2 = new Scanner(decryptedFile);
         assertNotEquals(file1.hasNext(), file2.hasNext());
         Encryption.decryptFile(decryptedFile);
+        file1.close();
+        file2.close();
     }
 
 }
